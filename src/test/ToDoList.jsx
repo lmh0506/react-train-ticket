@@ -116,9 +116,9 @@ const dispatch = useCallback(({type, payload}) => {
 }, [])
 
   useEffect(() => {
-    const todos = localStorage.getItem(LS_KEY) || []
+    const todos = JSON.parse(localStorage.getItem(LS_KEY)) || []
     console.log(todos)
-    dispatch({type: 'set', payload: JSON.parse(todos)})
+    dispatch({type: 'set', payload: todos})
     
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
